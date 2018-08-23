@@ -1,92 +1,95 @@
 # javascript-project-cards
 
-Use the variable below to give two players a static set of cards. Display the number each player gets and tell us who is the winner. Keep up with how many points each player gets after the five rounds.
+Use the cards variable below to give two players a stack (array) of cards. Display the number each player gets and tell us who is the winner. Keep up with how many points each player gets after the five rounds.
+
+MINIMUM REQUIREMENTS:
+Run 5 scenarios and print the results in the console log. This MUST work if I change the hard coded values in the deck.
 
 Extra Credit: Create a reset button and randomly generate a new deck of cards each time. You can use the function below the card deck variable.
 
 ```javascript
-const deck = [    { Value: 6, Suit: 'h' },
-    { Value: 9, Suit: 'd' },
-    { Value: 2, Suit: 'h' },
-    { Value: 9, Suit: 'h' },
-    { Value: 14, Suit: 'h' },
-    { Value: 6, Suit: 'c' },
-    { Value: 2, Suit: 'd' },
-    { Value: 9, Suit: 's' },
-    { Value: 12, Suit: 'h' },
-    { Value: 10, Suit: 'c' },
-    { Value: 14, Suit: 'c' },
-    { Value: 7, Suit: 'd' },
-    { Value: 3, Suit: 's' },
-    { Value: 8, Suit: 'd' },
-    { Value: 12, Suit: 's' },
-    { Value: 7, Suit: 's' },
-    { Value: 7, Suit: 'c' },
-    { Value: 14, Suit: 'd' },
-    { Value: 11, Suit: 'c' },
-    { Value: 10, Suit: 's' },
-    { Value: 11, Suit: 'd' },
-    { Value: 4, Suit: 'd' },
-    { Value: 2, Suit: 's' },
-    { Value: 7, Suit: 'h' },
-    { Value: 14, Suit: 's' },
-    { Value: 10, Suit: 'h' },
-    { Value: 5, Suit: 'c' },
-    { Value: 12, Suit: 'c' },
-    { Value: 6, Suit: 's' },
-    { Value: 5, Suit: 's' },
-    { Value: 12, Suit: 'd' },
-    { Value: 4, Suit: 'h' },
-    { Value: 11, Suit: 'h' },
-    { Value: 13, Suit: 'c' },
-    { Value: 5, Suit: 'h' },
-    { Value: 6, Suit: 'd' },
-    { Value: 13, Suit: 's' },
-    { Value: 13, Suit: 'd' },
-    { Value: 8, Suit: 'c' },
-    { Value: 4, Suit: 's' },
-    { Value: 13, Suit: 'h' },
-    { Value: 2, Suit: 'c' },
-    { Value: 8, Suit: 's' },
-    { Value: 10, Suit: 'd' },
-    { Value: 3, Suit: 'c' },
-    { Value: 3, Suit: 'h' },
-    { Value: 11, Suit: 's' },
-    { Value: 8, Suit: 'h' },
-    { Value: 9, Suit: 'c' },
-    { Value: 5, Suit: 'd' },
-    { Value: 3, Suit: 'd' },
-    { Value: 4, Suit: 'c' } ];
+const cards = [
+    { cardNumber: 6, type: 'h' },
+    { cardNumber: 9, type: 'd' },
+    { cardNumber: 2, type: 'h' },
+    { cardNumber: 9, type: 'h' },
+    { cardNumber: 14, type: 'h' },
+    { cardNumber: 6, type: 'c' },
+    { cardNumber: 2, type: 'd' },
+    { cardNumber: 9, type: 's' },
+    { cardNumber: 12, type: 'h' },
+    { cardNumber: 10, type: 'c' },
+    { cardNumber: 14, type: 'c' },
+    { cardNumber: 7, type: 'd' },
+    { cardNumber: 3, type: 's' },
+    { cardNumber: 8, type: 'd' },
+    { cardNumber: 12, type: 's' },
+    { cardNumber: 7, type: 's' },
+    { cardNumber: 7, type: 'c' },
+    { cardNumber: 14, type: 'd' },
+    { cardNumber: 11, type: 'c' },
+    { cardNumber: 10, type: 's' },
+    { cardNumber: 11, type: 'd' },
+    { cardNumber: 4, type: 'd' },
+    { cardNumber: 2, type: 's' },
+    { cardNumber: 7, type: 'h' },
+    { cardNumber: 14, type: 's' },
+    { cardNumber: 10, type: 'h' },
+    { cardNumber: 5, type: 'c' },
+    { cardNumber: 12, type: 'c' },
+    { cardNumber: 6, type: 's' },
+    { cardNumber: 5, type: 's' },
+    { cardNumber: 12, type: 'd' },
+    { cardNumber: 4, type: 'h' },
+    { cardNumber: 11, type: 'h' },
+    { cardNumber: 13, type: 'c' },
+    { cardNumber: 5, type: 'h' },
+    { cardNumber: 6, type: 'd' },
+    { cardNumber: 13, type: 's' },
+    { cardNumber: 13, type: 'd' },
+    { cardNumber: 8, type: 'c' },
+    { cardNumber: 4, type: 's' },
+    { cardNumber: 13, type: 'h' },
+    { cardNumber: 2, type: 'c' },
+    { cardNumber: 8, type: 's' },
+    { cardNumber: 10, type: 'd' },
+    { cardNumber: 3, type: 'c' },
+    { cardNumber: 3, type: 'h' },
+    { cardNumber: 11, type: 's' },
+    { cardNumber: 8, type: 'h' },
+    { cardNumber: 9, type: 'c' },
+    { cardNumber: 5, type: 'd' },
+    { cardNumber: 3, type: 'd' },
+    { cardNumber: 4, type: 'c' } ];
     
 var player1Deck = [];
 var player2Deck = [];
 
-player1Deck = deck.slice();
+player1Deck = cards.slice();
 player2Deck = player1Deck.splice(1, 26);
 ```
 
 Generate a new set of cards with the code below:
 ```javascript
-var deck = new Array();
-var suits = ["s", "d", "c", "h"];
-var values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"];
+var cards = new Array();
+var typeArray = ["s", "d", "c", "h"];
+var cardNumberArray = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"];
 
-for(var i = 0; i < suits.length; i++)
+for(let i=0; i <typeArray.length; i++)
 {
-    for(var x = 0; x < values.length; x++)
+    for(let x=0; x <cardNumberArray.length; x++)
     {
-        var card = {Value: values[x], Suit: suits[i]};
-        deck.push(card);
+        let card = {cardNumber: cardNumberArray[x], type: typeArray[i]};
+        cards.push(card);
     }
 }
 
-for (var i = 0; i < 1000; i++)
+for (var i=0; i < 10000; i++)
 {
-    var location1 = Math.floor((Math.random() * deck.length));
-    var location2 = Math.floor((Math.random() * deck.length));
-    var tmp = deck[location1];
-
-    deck[location1] = deck[location2];
-    deck[location2] = tmp;
+    let rand1 = Math.floor((Math.random() * cards.length));
+    let rand2 = Math.floor((Math.random() * cards.length));
+    let tmp = cards[rand1];
+    cards[rand1] = cards[rand2];
+    cards[rand2] = tmp;
 }
 ```
