@@ -1,11 +1,13 @@
 # javascript-project-cards
 
-Use the cards variable below to give two players a stack (array) of cards. Display the number each player gets and tell us who is the winner. Keep up with how many points each player gets after the five rounds.
+Use the cards array below to give two players a stack (array) of cards. Compare the first cards of each deck to each other and tell us who is the winner. Keep up with how many points each player gets after five rounds.
 
 MINIMUM REQUIREMENTS:
-Run 5 scenarios and print the results in the console log. This MUST work if I change the hard coded values in the deck.
+Run 5 scenarios and print the results in the console log. This MUST work if the carNumbers in the array is changed.
 
 Extra Credit: Create a reset button and randomly generate a new deck of cards each time. You can use the function below the card deck variable.
+
+Extra Extra Credit: Let the user select how many scenarios to run through.
 
 ```javascript
 const cards = [
